@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{60A655CE-F7AB-4715-AEB4-921CC6E4FDCF}</ProjectGuid>
+    <RootNamespace>MFCApplication4</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>wsock32.lib;advapi32.lib</AdditionalDependencies>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="annotations.h" />
+    <ClInclude Include="Application.h" />
+    <ClInclude Include="commons.h" />
+    <ClInclude Include="Employee.h" />
+    <ClInclude Include="EmployeeADDForm.h" />
+    <ClInclude Include="EmployeeController.h" />
+    <ClInclude Include="EntryPoint.h" />
+    <ClInclude Include="IEmployeeADDForm.h" />
+    <ClInclude Include="IEmployeeController.h" />
+    <ClInclude Include="IEmployeeRepository.h" />
+    <ClInclude Include="IEmployeeRepositoryFakeMemory.h" />
+    <ClInclude Include="IEmployeeRepositoryGOODs.h" />
+    <ClInclude Include="IMainForm.h" />
+    <ClInclude Include="inc\bigbody.h" />
+    <ClInclude Include="inc\class.h" />
+    <ClInclude Include="inc\console.h" />
+    <ClInclude Include="inc\database.h" />
+    <ClInclude Include="inc\dbscls.h" />
+    <ClInclude Include="inc\goods.h" />
+    <ClInclude Include="inc\mop.h" />
+    <ClInclude Include="inc\object.h" />
+    <ClInclude Include="inc\procsock.h" />
+    <ClInclude Include="inc\protocol.h" />
+    <ClInclude Include="inc\rtree.h" />
+    <ClInclude Include="inc\sockio.h" />
+    <ClInclude Include="inc\w32sock.h" />
+    <ClInclude Include="inc\wtask.h" />
+    <ClInclude Include="Injector.h" />
+    <ClInclude Include="MainFrame.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="Source.h" />
+    <ClInclude Include="src\client.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Application.cpp" />
+    <ClCompile Include="Employee.cpp" />
+    <ClCompile Include="EmployeeADDForm.cpp" />
+    <ClCompile Include="EmployeeController.cpp" />
+    <ClCompile Include="EntryPoint.cpp" />
+    <ClCompile Include="IEmployeeADD.cpp" />
+    <ClCompile Include="IEmployeeController.cpp" />
+    <ClCompile Include="IEmployeeRepository.cpp" />
+    <ClCompile Include="IEmployeeRepositoryFakeMemory.cpp" />
+    <ClCompile Include="IEmployeeRepositoryGOODs.cpp" />
+    <ClCompile Include="IMainForm.cpp" />
+    <ClCompile Include="Injector.cpp" />
+    <ClCompile Include="MainFrame.cpp" />
+    <ClCompile Include="src\bigbody.cxx" />
+    <ClCompile Include="src\class.cxx" />
+    <ClCompile Include="src\client.cxx" />
+    <ClCompile Include="src\console.cxx" />
+    <ClCompile Include="src\database.cxx" />
+    <ClCompile Include="src\dbscls.cxx" />
+    <ClCompile Include="src\mop.cxx" />
+    <ClCompile Include="src\object.cxx" />
+    <ClCompile Include="src\procsock.cxx" />
+    <ClCompile Include="src\protocol.cxx" />
+    <ClCompile Include="src\rtree.cxx" />
+    <ClCompile Include="src\sockio.cxx" />
+    <ClCompile Include="src\w32sock.cxx" />
+    <ClCompile Include="src\winfile.cxx" />
+    <ClCompile Include="src\wtask.cxx" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="lib\clntmfcd.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="lib\clntmfc.lib" />
+    <Library Include="lib\clntmfcd.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MFCApplication4.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="MFCApplication4.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
