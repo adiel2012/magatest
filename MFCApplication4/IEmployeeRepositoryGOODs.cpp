@@ -4,7 +4,10 @@
 
 ref<EmployeeGOODS> IEmployeeRepositoryGOODs::findEmployeeGOODS(std::string ssn)
 {
-	ref<set_member> mbr = employees->find(ssn.c_str());
+
+//	task::initialize(task::normal_stack);
+
+	ref<set_member> mbr = company->employees->find(ssn.c_str());
 	if (!mbr.is_nil()) {
 		return mbr->obj;
 	}
@@ -17,7 +20,7 @@ ref<EmployeeGOODS> IEmployeeRepositoryGOODs::findEmployeeGOODS(std::string ssn)
 
 IEmployeeRepositoryGOODs::IEmployeeRepositoryGOODs()
 {
-	this->employees = B_tree::create(NULL);
+	//company->SetEmployees = B_tree::create(NULL);
 }
 
 
@@ -31,7 +34,7 @@ int IEmployeeRepositoryGOODs::add(Employee& employee)
 		return -1;
 
 	EmployeeGOODS e(employee);
-	modify(employees)->insert(&(e.ssn[0]),&e);
+	modify(company->employees)->insert(&(e.ssn[0]), &e);
 	return 0;
 }
 
@@ -48,7 +51,7 @@ int IEmployeeRepositoryGOODs::remove(std::string ssn)
 	}
 	else {
 		ref<set_member> res = s;
-		modify(employees)->remove(res);
+		modify(company->employees)->remove(res);
 	}
 	return 0;
 }
@@ -57,7 +60,7 @@ int IEmployeeRepositoryGOODs::getbySSN(std::string ssn, Employee& employeefill)
 {
 
 	
-	ref<set_member> mbr = employees->find(ssn.c_str());
+	ref<set_member> mbr = company->employees->find(ssn.c_str());
 	ref<EmployeeGOODS> cc = mbr;
 	
 
@@ -78,7 +81,7 @@ int IEmployeeRepositoryGOODs::getbySSN(std::string ssn, Employee& employeefill)
 std::vector<Employee> IEmployeeRepositoryGOODs::getAll()
 {
 	std::vector<Employee> res;
-	employees->iterate(IEmployeeRepositoryGOODs::add_each, &res);
+	company->employees->iterate(IEmployeeRepositoryGOODs::add_each, &res);
 	return res;
 }
 

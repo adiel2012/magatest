@@ -1,5 +1,6 @@
 #pragma once
 #include "Application.h"
+#include "IEmployeeRepositoryGOODs.h"
 class EntryPoint : public CWinApp
 {
 	BOOL InitInstance()
@@ -10,11 +11,25 @@ class EntryPoint : public CWinApp
 		return TRUE;
 	}
 
+
 	static void main(EntryPoint* gapp) {
-		Application app;
-		CDialog* dlg = app.run();
-		gapp->m_pMainWnd = dlg;
-		exit(0);
+
+		database db;
+		task::initialize(task::normal_stack);
+		if (db.open("unidb.cfg")) {
+
+			IEmployeeRepositoryGOODs* midb = ((IEmployeeRepositoryGOODs*)(Injector::getInstance()->getIEmployeeRepository()));
+			midb->setDb(&db);
+
+			Application app;
+			CDialog* dlg = app.run();
+			gapp->m_pMainWnd = dlg;
+
+			db.close();
+
+			exit(0);
+
+		}
 		//INT_PTR  nResponse = dlg->DoModal();
 
 	}
