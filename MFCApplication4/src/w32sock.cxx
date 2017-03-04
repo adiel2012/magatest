@@ -630,28 +630,26 @@ socket_t* socket_t::connect(char const* address,
                                        connectTimeout);
     }
 
-    if (domain == sock_local_domain 
-        || (domain == sock_any_domain 
-            && ((port = strchr(address, ':')) == NULL 
-                || ((hostname_len = port - address) == 9 
-                    && strincmp(address, "localhost", hostname_len) == 0)))
-					/*
-#ifdef RESTRICTED_USE_OF_LOCAL_SOCKETS
-                || (gethostname(hostname, sizeof hostname) == 0 
-                    && strlen(hostname) == hostname_len 
-                    && strincmp(address, hostname, hostname_len) == 0)))
-#endif
-					*/
-        )
-     {
-        local_win_socket* s = new local_win_socket(address);
-        s->connect(max_attempts, timeout, connectTimeout); 
-        return s;
-     } else { 
-        win_socket* s = new win_socket(address);
-        s->connect(max_attempts, timeout, connectTimeout); 
-        return s;
-    }  
+	/*   if (domain == sock_local_domain
+	|| (domain == sock_any_domain
+	&& ((port = strchr(address, ':')) == NULL
+	|| ((hostname_len = port - address) == 9
+	&& strincmp(address, "localhost", hostname_len) == 0)
+	#ifdef RESTRICTED_USE_OF_LOCAL_SOCKETS
+	|| (gethostname(hostname, sizeof hostname) == 0
+	&& strlen(hostname) == hostname_len
+	&& strincmp(address, hostname, hostname_len) == 0)))
+	#endif
+	)
+	{
+	local_win_socket* s = new local_win_socket(address);
+	s->connect(max_attempts, timeout, connectTimeout);
+	return s;
+	} else { */
+	win_socket* s = new win_socket(address);
+	s->connect(max_attempts, timeout, connectTimeout);
+	return s;
+	// }  
 }
     
 static process_name_function current_process_name_function = 0;

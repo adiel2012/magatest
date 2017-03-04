@@ -16,7 +16,7 @@ class EntryPoint : public CWinApp
 
 		database db;
 		task::initialize(task::normal_stack);
-		if (db.open("unidb.cfg")) {
+		if (db.open("C:\\Users\\adiel\\Documents\\Adiel\\MagaAdiel\\MFCApp\\Debug\\goodsrv.cfg")) {
 
 			IEmployeeRepositoryGOODs* midb = ((IEmployeeRepositoryGOODs*)(Injector::getInstance()->getIEmployeeRepository()));
 			midb->setDb(&db);
