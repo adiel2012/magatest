@@ -18,8 +18,8 @@ class EntryPoint : public CWinApp
 		task::initialize(task::normal_stack);
 		if (db.open("C:\\Users\\adiel\\Documents\\Adiel\\MagaAdiel\\MFCApp\\Debug\\goodsrv.cfg")) {
 
-			IEmployeeRepositoryGOODs* midb = ((IEmployeeRepositoryGOODs*)(Injector::getInstance()->getIEmployeeRepository()));
-			midb->setDb(&db);
+			IEmployeeRepositoryGOODs* miemployeerepo = ((IEmployeeRepositoryGOODs*)(Injector::getInstance()->getIEmployeeRepository()));
+			miemployeerepo->setDb(&db);
 
 			Application app;
 			CDialog* dlg = app.run();

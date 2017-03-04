@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Injector.h"
+#include "IEmployeeRepositoryGOODs.h"
 
 //   la locura
 Injector* Injector::__instance;
@@ -22,7 +23,7 @@ IEmployeeRepository* Injector::getIEmployeeRepository()
 {
 	//static IEmployeeRepositoryGOODs instance;
 	if (__IEmployeeRepository_instance == nullptr)
-		__IEmployeeRepository_instance =       new IEmployeeRepositoryFakeMemory();
+		__IEmployeeRepository_instance = new IEmployeeRepositoryGOODs();  //    new IEmployeeRepositoryFakeMemory();
 	
 	return __IEmployeeRepository_instance;
 }

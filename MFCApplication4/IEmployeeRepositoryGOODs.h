@@ -33,15 +33,23 @@ public:
 		object::default_mop = &optimistic_scheme;
 	}
 	ref<B_tree> employees;
-	void SetEmployees(ref<B_tree> a){
+	/*void SetEmployees(ref<B_tree> a){
 		employees = a;
-	}
+	}*/
 	CompanyExpress() : object(self_class){
 		employees = B_tree::create(NULL);
 	}
 	~CompanyExpress(){}
 
+
+	
+
+
+
+	METACLASS_DECLARATIONS(CompanyExpress, object);
+
 };
+
 
 
 
@@ -85,24 +93,24 @@ class EmployeeGOODS : public object
 {
 public:
 	//[[FieldDescription("Name")]]
-	char name[20];
+	wstring_t name;// [20];
 
 	//	[[FieldDescription("Date of Birth")]]
-	CTime  dateofbirth;
+	real8  dateofbirth;
 
 	//	[[FieldDescription("Annual Salary")]]
-	float salary = 0;
+	real4 salary = 0;
 
 	//	[[FieldDescription("Personal Address")]]
-	char address[200];
+	wstring_t address;// [200];
 
 	//[[FieldDescription("Private Phone of ten digit")]]
 	//[[Field(ft_string, 10)]]
-	char phone[10];
+	wstring_t phone;// [10];
 
 	//[[FieldDescription("Social Security Number of ten digits")]]
 	//[[Field(ft_string,10)]]
-	char ssn[10];
+	wstring_t ssn;// [10];
 
 public:
 
@@ -117,6 +125,8 @@ public:
 	//field_descriptor& describe_components();
 
 	METACLASS_DECLARATIONS(EmployeeGOODS, object);
+
+	
 
 };
 

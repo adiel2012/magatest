@@ -62,6 +62,11 @@ public:
 		return buff.str();
 	}
 
+	static std::string wstringTostring(std::wstring ws) {
+		std::string s(ws.begin(), ws.end());
+		return s;
+	}
+
 
 	static bool isFloat(std::string myString) {
 		std::istringstream iss(myString);

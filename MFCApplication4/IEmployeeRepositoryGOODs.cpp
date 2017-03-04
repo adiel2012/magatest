@@ -1,6 +1,16 @@
 #include "stdafx.h"
 #include "IEmployeeRepositoryGOODs.h"
+#include "commons.h"
 
+field_descriptor& CompanyExpress::describe_components()
+{
+	return FIELD(employees);
+}
+
+REGISTER(CompanyExpress, // class name 
+	object,    // base class
+	pessimistic_exclusive_scheme // metaobject
+	);
 
 ref<EmployeeGOODS> IEmployeeRepositoryGOODs::findEmployeeGOODS(std::string ssn)
 {
@@ -34,7 +44,8 @@ int IEmployeeRepositoryGOODs::add(Employee& employee)
 		return -1;
 
 	EmployeeGOODS e(employee);
-	modify(company->employees)->insert(&(e.ssn[0]), &e);
+	const char* key = e.ssn.getChars();
+	modify(company->employees)->insert(key, &e);
 	return 0;
 }
 
@@ -58,17 +69,16 @@ int IEmployeeRepositoryGOODs::remove(std::string ssn)
 
 int IEmployeeRepositoryGOODs::getbySSN(std::string ssn, Employee& employeefill)
 {
-
 	
 	ref<set_member> mbr = company->employees->find(ssn.c_str());
 	ref<EmployeeGOODS> cc = mbr;
 	
 
 	if (!mbr.is_nil()) {
-		employeefill.setSSN(std::string(cc->ssn));
-		employeefill.setAddress(std::string(cc->address));
-		employeefill.setPhone(std::string(cc->phone));
-		employeefill.setName(std::string(cc->name));
+		employeefill.setSSN(std::string(cc->ssn.getChars()));
+		employeefill.setAddress(std::string(cc->address.getChars()));
+		employeefill.setPhone(std::string(cc->phone.getChars()));
+		employeefill.setName(std::string(cc->name.getChars()));
 		employeefill.setDateofbirth(cc->dateofbirth);
 		employeefill.setSalary(cc->salary);
 	}
@@ -90,6 +100,13 @@ void IEmployeeRepositoryGOODs::add_each(ref<set_member> mbr, void const * stdvec
 	std::vector<Employee>* buffer = (std::vector<Employee>*) stdvector_ptr;
 	ref<EmployeeGOODS> p = mbr->obj;
 	Employee b;
+	b.setAddress(std::string(p->address.getChars()));
+	b.setName(std::string(p->name.getChars()));
+	b.setPhone(std::string(p->phone.getChars()));
+	b.setName(std::string(p->ssn.getChars()));
+	b.setSalary(p->salary);
+	b.setSSN(std::string(p->ssn.getChars()));
+	CTime time(p->dateofbirth);
 	buffer->push_back(b);
 }
 
@@ -119,27 +136,31 @@ EmployeeGOODS::EmployeeGOODS() : object(self_class)
 
 EmployeeGOODS::EmployeeGOODS(char name[20], CTime dateofbirth, float salary, char address[200], char phone[10], char ssn[10]) : object(self_class)
 {
-	strcpy(this->name, name);
-	this->dateofbirth = dateofbirth;
+	this->name= name;
+	 //  strcpy(this->name, name);
+	this->dateofbirth = (long)(dateofbirth.GetTime());;
 	this->salary = salary;
-	strcpy(this->address, address);
-	strcpy(this->phone, phone);
-	strcpy(this->ssn, ssn);
+	this->address= address;
+	//strcpy(this->address, address);
+	this->phone= phone;
+	//strcpy(this->phone, phone);
+	this->ssn= ssn;
+	//strcpy(this->ssn, ssn);
 }
 
 EmployeeGOODS::EmployeeGOODS(Employee emp) : object(self_class)
 {
-	strcpy(this->name, emp.getName().c_str());
-	this->dateofbirth = emp.getDateofbirth();
+	this->name = emp.getName().c_str();
+	this->dateofbirth = (long)(emp.getDateofbirth().GetTime());
 	this->salary = emp.getSalary();
-	strcpy(this->address, emp.getAddress().c_str());
-	strcpy(this->phone, emp.getPhone().c_str());
-	strcpy(this->ssn, emp.getSSN().c_str());
+	this->address, emp.getAddress().c_str();
+	this->phone, emp.getPhone().c_str();
+	this->ssn, emp.getSSN().c_str();
 }
 
 Employee EmployeeGOODS::ToEmployee()
 {
-	return Employee(std::string(name), dateofbirth, salary, std::string(address), std::string(phone), std::string(ssn));
+	return Employee(std::string(name.getChars()), dateofbirth, salary, std::string(address.getChars()), std::string(phone.getChars()), std::string(ssn.getChars()));
 }
 
 EmployeeGOODS::~EmployeeGOODS()
@@ -148,9 +169,9 @@ EmployeeGOODS::~EmployeeGOODS()
 
 field_descriptor & EmployeeGOODS::describe_components()
 {
-	return FIELD(ssn),  FIELD(address),
-		FIELD(phone), FIELD(ssn);
+	return FIELD(ssn), FIELD(address), FIELD(dateofbirth) , FIELD(name), FIELD(phone), FIELD(ssn);
 }
 
 REGISTER(EmployeeGOODS, object, pessimistic_repeatable_read_scheme);
 
+//REGISTER(CompanyExpress, object, pessimistic_exclusive_scheme);
