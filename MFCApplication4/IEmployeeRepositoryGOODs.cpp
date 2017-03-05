@@ -7,15 +7,17 @@ field_descriptor& CompanyExpress::describe_components()
 	return FIELD(employees);
 }
 
+
+
 REGISTER(CompanyExpress, // class name 
-	object,    // base class
+	object, // base class
 	pessimistic_exclusive_scheme // metaobject
-	);
+);
 
 ref<EmployeeGOODS> IEmployeeRepositoryGOODs::findEmployeeGOODS(std::string ssn)
 {
 
-//	task::initialize(task::normal_stack);
+	//	task::initialize(task::normal_stack);
 
 	ref<set_member> mbr = company->employees->find(ssn.c_str());
 	if (!mbr.is_nil()) {
@@ -137,7 +139,7 @@ EmployeeGOODS::EmployeeGOODS() : object(self_class)
 EmployeeGOODS::EmployeeGOODS(char name[20], CTime dateofbirth, float salary, char address[200], char phone[10], char ssn[10]) : object(self_class)
 {
 	this->name= name;
-	 //  strcpy(this->name, name);
+	//  strcpy(this->name, name);
 	this->dateofbirth = (long)(dateofbirth.GetTime());;
 	this->salary = salary;
 	this->address= address;
@@ -169,7 +171,8 @@ EmployeeGOODS::~EmployeeGOODS()
 
 field_descriptor & EmployeeGOODS::describe_components()
 {
-	return FIELD(ssn), FIELD(address), FIELD(dateofbirth) , FIELD(name), FIELD(phone), FIELD(ssn);
+	return FIELD(name), FIELD(dateofbirth), FIELD(salary), FIELD(address), FIELD(phone), FIELD(ssn);
+	// name  dateofbirth salary, address, phone, ssn
 }
 
 REGISTER(EmployeeGOODS, object, pessimistic_repeatable_read_scheme);

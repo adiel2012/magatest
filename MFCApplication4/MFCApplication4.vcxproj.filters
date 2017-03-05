@@ -13,71 +13,14 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\inc">
-      <UniqueIdentifier>{681706e8-cfd1-48c3-a966-28e20f00d1c2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\inc">
-      <UniqueIdentifier>{e9981fcc-721b-4ce8-95d9-577a6addff24}</UniqueIdentifier>
+    <Filter Include="Header Files\trash">
+      <UniqueIdentifier>{ad806abe-1025-4d31-9055-cb3b75c9ba05}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="inc\bigbody.h">
-      <Filter>Header Files\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\class.h">
-      <Filter>Header Files\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="src\client.h">
-      <Filter>Header Files\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\console.h">
-      <Filter>Header Files\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\database.h">
-      <Filter>Header Files\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\dbscls.h">
-      <Filter>Header Files\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\goods.h">
-      <Filter>Header Files\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\mop.h">
-      <Filter>Header Files\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\object.h">
-      <Filter>Header Files\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\procsock.h">
-      <Filter>Header Files\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\protocol.h">
-      <Filter>Header Files\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="Resource.h">
-      <Filter>Header Files\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\rtree.h">
-      <Filter>Header Files\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\sockio.h">
-      <Filter>Header Files\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="stdafx.h">
-      <Filter>Header Files\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>Header Files\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\w32sock.h">
-      <Filter>Header Files\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\wtask.h">
-      <Filter>Header Files\inc</Filter>
-    </ClInclude>
     <ClInclude Include="Employee.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -126,56 +69,11 @@
     <ClInclude Include="Source.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="my_root.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\bigbody.cxx">
-      <Filter>Source Files\inc</Filter>
-    </ClCompile>
-    <ClCompile Include="src\class.cxx">
-      <Filter>Source Files\inc</Filter>
-    </ClCompile>
-    <ClCompile Include="src\client.cxx">
-      <Filter>Source Files\inc</Filter>
-    </ClCompile>
-    <ClCompile Include="src\console.cxx">
-      <Filter>Source Files\inc</Filter>
-    </ClCompile>
-    <ClCompile Include="src\database.cxx">
-      <Filter>Source Files\inc</Filter>
-    </ClCompile>
-    <ClCompile Include="src\dbscls.cxx">
-      <Filter>Source Files\inc</Filter>
-    </ClCompile>
-    <ClCompile Include="src\mop.cxx">
-      <Filter>Source Files\inc</Filter>
-    </ClCompile>
-    <ClCompile Include="src\object.cxx">
-      <Filter>Source Files\inc</Filter>
-    </ClCompile>
-    <ClCompile Include="src\procsock.cxx">
-      <Filter>Source Files\inc</Filter>
-    </ClCompile>
-    <ClCompile Include="src\protocol.cxx">
-      <Filter>Source Files\inc</Filter>
-    </ClCompile>
-    <ClCompile Include="src\rtree.cxx">
-      <Filter>Source Files\inc</Filter>
-    </ClCompile>
-    <ClCompile Include="src\sockio.cxx">
-      <Filter>Source Files\inc</Filter>
-    </ClCompile>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>Source Files\inc</Filter>
-    </ClCompile>
-    <ClCompile Include="src\w32sock.cxx">
-      <Filter>Source Files\inc</Filter>
-    </ClCompile>
-    <ClCompile Include="src\winfile.cxx">
-      <Filter>Source Files\inc</Filter>
-    </ClCompile>
-    <ClCompile Include="src\wtask.cxx">
-      <Filter>Source Files\inc</Filter>
-    </ClCompile>
     <ClCompile Include="Employee.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -215,19 +113,9 @@
     <ClCompile Include="MainFrame.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="lib\clntmfcd.dll">
-      <Filter>Resource Files</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Library Include="lib\clntmfc.lib">
-      <Filter>Resource Files</Filter>
-    </Library>
-    <Library Include="lib\clntmfcd.lib">
-      <Filter>Resource Files</Filter>
-    </Library>
+    <ClCompile Include="my_root.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MFCApplication4.rc">
