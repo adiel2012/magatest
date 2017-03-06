@@ -53,6 +53,18 @@ public:
 			return std::isdigit(c);
 	}
 
+	static bool is_chain_of_digits(const std::string& candidate)
+	{
+
+
+		for (int i = 0; i < candidate.length(); ++i) {// for each position in the string
+			if (!std::isdigit(candidate[i]))
+				return false;
+		}
+
+		return true;
+	}
+
 	static bool is_phone_number(const std::string& candidate)
 	{
 		

@@ -41,9 +41,17 @@ class EntryPoint : public CWinApp
 
 			db.close();
 
-			exit(0);
+			
 
 		}
+		else
+		{
+			
+			Utils::Message1("Can not connect to Server", "Error", nullptr);
+		}
+
+
+		exit(0);
 		////INT_PTR  nResponse = dlg->DoModal();
 
 

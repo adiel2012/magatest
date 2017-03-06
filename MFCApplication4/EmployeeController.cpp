@@ -89,6 +89,10 @@ int EmployeeController::validate(Employee e)
 
 	if (!Utils::is_phone_number(e.getPhone()))
 		return 8;
+
+	if (!Utils::is_chain_of_digits(e.getSSN()))
+		return 9;
+	
 	
 
 	return 0;
@@ -157,6 +161,7 @@ int EmployeeController::do_add_persistence(Employee employee, std::string ssn_ol
 	case 6: { Utils::Message1("Name required", "Incorrect", Injector::getInstance()->getMAINForm()->dialog);  break; }
 	case 7: { Utils::Message1("Review Phone Length", "Incorrect", Injector::getInstance()->getMAINForm()->dialog);  break; }
 	case 8: { Utils::Message1("Not a Valid Phone Number", "Incorrect", Injector::getInstance()->getMAINForm()->dialog);  break; }
+	case 9: { Utils::Message1("SSN must be a chain of digits", "Incorrect", Injector::getInstance()->getMAINForm()->dialog);  break; }
 	default:
 		break;
 	}
