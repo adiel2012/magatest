@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "IEmployeeRepositoryGOODs.h"
+#include "EmployeeRepositoryGOODs.h"
 #include "commons.h"
 
 field_descriptor& CompanyExpress::describe_components()
@@ -14,11 +14,8 @@ REGISTER(CompanyExpress, // class name
 	pessimistic_exclusive_scheme // metaobject
 );
 
-ref<EmployeeGOODS> IEmployeeRepositoryGOODs::findEmployeeGOODS(std::string ssn)
+ref<EmployeeGOODS> EmployeeRepositoryGOODs::findEmployeeGOODS(std::string ssn)
 {
-
-	//	task::initialize(task::normal_stack);
-
 	ref<set_member> mbr = company->employees->find(ssn.c_str());
 	if (!mbr.is_nil()) {
 		return mbr->obj;
@@ -30,17 +27,17 @@ ref<EmployeeGOODS> IEmployeeRepositoryGOODs::findEmployeeGOODS(std::string ssn)
 
 
 
-IEmployeeRepositoryGOODs::IEmployeeRepositoryGOODs()
+EmployeeRepositoryGOODs::EmployeeRepositoryGOODs()
 {
 	//company->SetEmployees = B_tree::create(NULL);
 }
 
 
-IEmployeeRepositoryGOODs::~IEmployeeRepositoryGOODs()
+EmployeeRepositoryGOODs::~EmployeeRepositoryGOODs()
 {
 }
 
-int IEmployeeRepositoryGOODs::add(Employee& employee)
+int EmployeeRepositoryGOODs::add(Employee& employee)
 {
 	if (!this->findEmployeeGOODS(employee.getSSN()).is_nil())
 		return -1;
@@ -51,12 +48,12 @@ int IEmployeeRepositoryGOODs::add(Employee& employee)
 	return 0;
 }
 
-int IEmployeeRepositoryGOODs::remove(Employee& employee)
+int EmployeeRepositoryGOODs::remove(Employee& employee)
 {
 	return this->remove(employee.getSSN());
 }
 
-int IEmployeeRepositoryGOODs::remove(std::string ssn)
+int EmployeeRepositoryGOODs::remove(std::string ssn)
 {
 	ref<EmployeeGOODS> s = this->findEmployeeGOODS(ssn.c_str());
 
@@ -75,7 +72,7 @@ int IEmployeeRepositoryGOODs::remove(std::string ssn)
 	return 0;
 }
 
-int IEmployeeRepositoryGOODs::getbySSN(std::string ssn, Employee& employeefill)
+int EmployeeRepositoryGOODs::getbySSN(std::string ssn, Employee& employeefill)
 {
 	
 	ref<set_member> mbr = company->employees->find(ssn.c_str());
@@ -97,14 +94,14 @@ int IEmployeeRepositoryGOODs::getbySSN(std::string ssn, Employee& employeefill)
 	return 0;  // std::unique_ptr<Employee>(new Employee());
 }
 
-std::vector<Employee> IEmployeeRepositoryGOODs::getAll()
+std::vector<Employee> EmployeeRepositoryGOODs::getAll()
 {
 	std::vector<Employee> res;
-	company->employees->iterate(IEmployeeRepositoryGOODs::add_each, &res);
+	company->employees->iterate(EmployeeRepositoryGOODs::add_each, &res);
 	return res;
 }
 
-void IEmployeeRepositoryGOODs::add_each(ref<set_member> mbr, void const * stdvector_ptr)
+void EmployeeRepositoryGOODs::add_each(ref<set_member> mbr, void const * stdvector_ptr)
 {
 	std::vector<Employee>* buffer = (std::vector<Employee>*) stdvector_ptr;
 	ref<EmployeeGOODS> p = mbr->obj;
@@ -122,7 +119,7 @@ void IEmployeeRepositoryGOODs::add_each(ref<set_member> mbr, void const * stdvec
 
 
 
-int IEmployeeRepositoryGOODs::update(std::string oldSSN, Employee& employeedata)
+int EmployeeRepositoryGOODs::update(std::string oldSSN, Employee& employeedata)
 {
 	ref<EmployeeGOODS> res1 = this->findEmployeeGOODS(oldSSN);
 	ref<EmployeeGOODS> res2 = this->findEmployeeGOODS(employeedata.getSSN());

@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "Injector.h"
-#include "IEmployeeRepositoryGOODs.h"
+#include "EmployeeRepositoryGOODs.h"
 
 //   la locura
 Injector* Injector::__instance;
@@ -21,9 +21,9 @@ Injector::~Injector()
 
 IEmployeeRepository* Injector::getIEmployeeRepository()
 {
-	//static IEmployeeRepositoryGOODs instance;
+	//static EmployeeRepositoryGOODs instance;
 	if (__IEmployeeRepository_instance == nullptr)
-		__IEmployeeRepository_instance = new IEmployeeRepositoryGOODs();  //    new IEmployeeRepositoryFakeMemory();
+		__IEmployeeRepository_instance = new EmployeeRepositoryGOODs();  //    new IEmployeeRepositoryFakeMemory();
 	
 	return __IEmployeeRepository_instance;
 }
@@ -66,6 +66,16 @@ EmployeeController* Injector::getIEmployeeController()
 
 
 	//return nullptr;
+}
+
+Injector* Injector::getInstance()
+
+{
+	// TODO: insert return statement here
+	//static Injector instance;
+	if (__instance == nullptr)
+		__instance = new Injector();
+	return __instance;
 }
 
 //EmployeeController & Injector::getEmployeeController()

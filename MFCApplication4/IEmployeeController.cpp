@@ -2,11 +2,11 @@
 #include "IEmployeeController.h"
 
 
-IEmployeeController::IEmployeeController()
-{
-}
-
-
-IEmployeeController::~IEmployeeController()
-{
-}
+//IEmployeeController::IEmployeeController()
+//{
+//}
+//
+//
+//IEmployeeController::~IEmployeeController()
+//{
+//}

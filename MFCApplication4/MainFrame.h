@@ -22,45 +22,8 @@ public:
 	virtual void execute_add_employee();
 	virtual void display();
 	virtual void hide();
-	//CDialog* getFrame();
 	void fill(std::vector<Employee> employees);
-	static void AddData(CListCtrl &ctrl, int row, int col, const char *str)
-
-	{
-
-		LVITEM lv;
-
-		lv.iItem = row;
-
-		lv.iSubItem = col;
-
-		CStringW temp(str);
-
-		//int len = strlen(str);
-		//WCHAR* sString = new WCHAR[len];
-		////sString[0]='a';
-		//
-		//for (int i = 0; i<len; i++) {
-		//	
-		//		sString[i] = str[i];
-		//	
-		//}
-
-		lv.pszText = temp.GetBuffer();
-
-		lv.mask = LVIF_TEXT;
-
-		if (col == 0)
-
-			ctrl.InsertItem(&lv);
-
-		else
-
-			ctrl.SetItem(&lv);
-		//delete sString;
-
-	}
-
+	static void AddData(CListCtrl &ctrl, int row, int col, const char *str);
 };
 
 class MainFrameDialog: public CDialog {

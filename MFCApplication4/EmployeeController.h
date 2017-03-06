@@ -1,9 +1,6 @@
 #pragma once
 #include "IEmployeeRepository.h"
 #include "Injector.h"
-//#include "Application.h"
-//#include "IEmployeeRepositoryGOODs.h"
-//#include "IEmployeeRepositoryFakeMemory.h"
 #include "EmployeeADDForm.h"
 
 class EmployeeController

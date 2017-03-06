@@ -1,7 +1,7 @@
 #pragma once
 
 #include "MainFrame.h"
-#include "IEmployeeRepositoryFakeMemory.h"
+#include "EmployeeRepositoryFakeMemory.h"
 #include "EmployeeController.h"
 #include "EmployeeADDForm.h"
 
@@ -26,14 +26,7 @@ public:
 	MainFrame* getMAINForm();
 	EmployeeController* getIEmployeeController();
 
-	static Injector* Injector::getInstance()
-	{
-		// TODO: insert return statement here
-		//static Injector instance;
-		if (__instance == nullptr)
-			__instance = new Injector();
-		return __instance;
-	}
+	static Injector* getInstance();
 	
 
 

@@ -1,12 +1,12 @@
 #pragma once
 #include "IEmployeeRepository.h"
-class IEmployeeRepositoryFakeMemory : public IEmployeeRepository
+class EmployeeRepositoryFakeMemory : public IEmployeeRepository
 {
 private:
 	std::vector<Employee> __list;
 public:
-	IEmployeeRepositoryFakeMemory();
-	~IEmployeeRepositoryFakeMemory();
+	EmployeeRepositoryFakeMemory();
+	~EmployeeRepositoryFakeMemory();
 
 	virtual int add(Employee& employee);
 	virtual int remove(Employee& employee);

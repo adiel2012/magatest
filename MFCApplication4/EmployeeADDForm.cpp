@@ -2,7 +2,9 @@
 #include "EmployeeADDForm.h"
 
 
-
+Employee_Dialog::Employee_Dialog(CWnd* pParent) : CDialog(IDD_DIALOG1, pParent)
+{
+}
 
 Employee_Dialog::~Employee_Dialog()
 {
@@ -11,13 +13,6 @@ Employee_Dialog::~Employee_Dialog()
 void Employee_Dialog::DoDataExchange(CDataExchange * pDX)
 {
 	CDialog::DoDataExchange(pDX);
-
-	//edt_ssn = (CEdit*)GetDlgItem(EDT_SSN);
-	//edt_salary = (CEdit*)GetDlgItem(EDT_SALARY);
-	//edt_name = (CEdit*)GetDlgItem(EDT_NAME);
-	//edt_address = (CEdit*)GetDlgItem(EDT_ADDRESS);
-	//edt_phone = (CEdit*)GetDlgItem(EDT_PHONE);
-	//edt_date_birth = (CEdit*)GetDlgItem(EDT_DATE_BIRTH);
 
 	DDX_Control(pDX, EDT_SSN, edt_ssn);
 	DDX_Control(pDX, EDT_SALARY, edt_salary);
@@ -203,6 +198,11 @@ void Employee_Dialog::inform_click()
 			}
 	}
 	
+}
+
+void Employee_Dialog::OnClose()
+{
+	ShowWindow(SW_HIDE);
 }
 
 void Employee_Dialog::clean()

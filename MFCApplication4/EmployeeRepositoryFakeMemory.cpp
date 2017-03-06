@@ -1,8 +1,8 @@
 #include "stdafx.h"
-#include "IEmployeeRepositoryFakeMemory.h"
+#include "EmployeeRepositoryFakeMemory.h"
 
 
-IEmployeeRepositoryFakeMemory::IEmployeeRepositoryFakeMemory()
+EmployeeRepositoryFakeMemory::EmployeeRepositoryFakeMemory()
 {
 	
 	add(Employee("Juan", GetCurrentTime(), 1.0f, "mia addfdghh", "ffffff", "2222222222"));
@@ -10,22 +10,22 @@ IEmployeeRepositoryFakeMemory::IEmployeeRepositoryFakeMemory()
 }
 
 
-IEmployeeRepositoryFakeMemory::~IEmployeeRepositoryFakeMemory()
+EmployeeRepositoryFakeMemory::~EmployeeRepositoryFakeMemory()
 {
 }
 
-int IEmployeeRepositoryFakeMemory::add(Employee& employee)
+int EmployeeRepositoryFakeMemory::add(Employee& employee)
 {
 	__list.push_back(employee);
 	return 0;
 }
 
-int IEmployeeRepositoryFakeMemory::remove(Employee& employee)
+int EmployeeRepositoryFakeMemory::remove(Employee& employee)
 {
 	return this->remove(employee.getSSN());
 }
 
-int IEmployeeRepositoryFakeMemory::remove(std::string ssn)
+int EmployeeRepositoryFakeMemory::remove(std::string ssn)
 {
 
 	int position = -1;
@@ -48,7 +48,7 @@ int IEmployeeRepositoryFakeMemory::remove(std::string ssn)
 	return 0;
 }
 
-int IEmployeeRepositoryFakeMemory::getbySSN(std::string ssn, Employee& employeefill)
+int EmployeeRepositoryFakeMemory::getbySSN(std::string ssn, Employee& employeefill)
 {
 
 	int position = -1;
@@ -72,14 +72,14 @@ int IEmployeeRepositoryFakeMemory::getbySSN(std::string ssn, Employee& employeef
 	return -1;
 }
 
-std::vector<Employee> IEmployeeRepositoryFakeMemory::getAll()
+std::vector<Employee> EmployeeRepositoryFakeMemory::getAll()
 {
 	return std::vector<Employee>(this->__list);
 }
 
 
 
-int IEmployeeRepositoryFakeMemory::update(std::string oldSSN, Employee& employeedata)
+int EmployeeRepositoryFakeMemory::update(std::string oldSSN, Employee& employeedata)
 {
 	if (this->remove(oldSSN) == -1)
 		return -1;

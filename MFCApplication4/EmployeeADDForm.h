@@ -41,24 +41,15 @@ private:
 	friend class EmployeeADDForm;
 
 public:
-	Employee_Dialog::Employee_Dialog(CWnd* pParent) : CDialog(IDD_DIALOG1, pParent)
-	{
-	}
+	Employee_Dialog(CWnd* pParent);
 	~Employee_Dialog();
 
 	virtual void DoDataExchange(CDataExchange* pDX);
-	//Called right after constructor. Initialize things here.
 	virtual BOOL OnInitDialog();
 	void init();
 
 	afx_msg void inform_click();
-
-	virtual void OnClose()
-	{
-		ShowWindow(SW_HIDE);
-	}
-
+	virtual void OnClose();
 	void clean();
-
 	DECLARE_MESSAGE_MAP()
 };

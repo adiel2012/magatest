@@ -13,108 +13,141 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\trash">
-      <UniqueIdentifier>{ad806abe-1025-4d31-9055-cb3b75c9ba05}</UniqueIdentifier>
+    <Filter Include="Header Files\Controller">
+      <UniqueIdentifier>{49c48f2a-5552-4906-98f8-ca2c31f67e05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Model">
+      <UniqueIdentifier>{a0e6c849-45cd-4a04-9b81-ee2691247834}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\View">
+      <UniqueIdentifier>{42e86735-f9b4-4aeb-af05-3863ce0a0699}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\View\Abstractions">
+      <UniqueIdentifier>{e3f0157a-54d9-428d-b613-17542507c51c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Model\Abstractions">
+      <UniqueIdentifier>{fc47e2ed-4028-4487-a673-01ad671a4b9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Core">
+      <UniqueIdentifier>{728da2d6-d3ed-4323-9744-22fce21c487d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\DependencyInjection">
+      <UniqueIdentifier>{0fc63335-7518-4a89-9a45-a75b053053a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Model\Repositories">
+      <UniqueIdentifier>{166dc0e8-cc5e-4ab3-acb1-eb8c4c69bbe9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Controller">
+      <UniqueIdentifier>{a347cb2f-fe3c-426a-874e-10c5b92421f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Model">
+      <UniqueIdentifier>{06a08b50-4fdd-418d-9a10-d30ceb361c79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\View">
+      <UniqueIdentifier>{72572cd4-98c0-4bdd-bb1b-3bb55231d7bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Model\Abstractions">
+      <UniqueIdentifier>{254d256c-0c04-4e2f-838d-1c00bc629f2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Model\Repositories">
+      <UniqueIdentifier>{779d85d3-56db-4e60-88b6-680cc0d8428d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Model\Entities">
+      <UniqueIdentifier>{339ee24d-742f-4577-b16c-7326f40ca32e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Model\Entities">
+      <UniqueIdentifier>{d39d92e9-47c8-440d-94b0-dfb791c6fd3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Core">
+      <UniqueIdentifier>{18a5d519-6559-47cd-ad54-6fcf58f49e95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DependencyInjection">
+      <UniqueIdentifier>{bb4ecb9b-e071-440d-88d2-30628580ab70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\View\Abstractions">
+      <UniqueIdentifier>{299ec7c7-1ae8-4250-acf6-b64ccaf4cf89}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Employee.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="IEmployeeRepository.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="IEmployeeRepositoryGOODs.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="EntryPoint.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="IEmployeeRepositoryFakeMemory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="annotations.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Core</Filter>
     </ClInclude>
     <ClInclude Include="Application.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Core</Filter>
     </ClInclude>
     <ClInclude Include="commons.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Core</Filter>
     </ClInclude>
     <ClInclude Include="EmployeeADDForm.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\View</Filter>
     </ClInclude>
     <ClInclude Include="EmployeeController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="IEmployeeADDForm.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="IEmployeeController.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Controller</Filter>
     </ClInclude>
     <ClInclude Include="IMainForm.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\View\Abstractions</Filter>
+    </ClInclude>
+    <ClInclude Include="IEmployeeADDForm.h">
+      <Filter>Header Files\View\Abstractions</Filter>
+    </ClInclude>
+    <ClInclude Include="IEmployeeRepository.h">
+      <Filter>Header Files\Model\Abstractions</Filter>
     </ClInclude>
     <ClInclude Include="Injector.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\DependencyInjection</Filter>
     </ClInclude>
     <ClInclude Include="MainFrame.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\View</Filter>
     </ClInclude>
-    <ClInclude Include="Source.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="EmployeeRepositoryFakeMemory.h">
+      <Filter>Header Files\Model\Repositories</Filter>
     </ClInclude>
-    <ClInclude Include="my_root.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Employee.h">
+      <Filter>Header Files\Model\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="EmployeeRepositoryGOODs.h">
+      <Filter>Header Files\Model\Repositories</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Employee.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="IEmployeeRepository.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="IEmployeeRepositoryGOODs.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="EntryPoint.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="IEmployeeRepositoryFakeMemory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Application.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Employee.cpp">
+      <Filter>Source Files\Model\Entities</Filter>
     </ClCompile>
     <ClCompile Include="EmployeeADDForm.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\View</Filter>
     </ClCompile>
     <ClCompile Include="EmployeeController.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="EntryPoint.cpp">
+      <Filter>Source Files\Core</Filter>
     </ClCompile>
     <ClCompile Include="IEmployeeADD.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="IEmployeeController.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="IMainForm.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\View\Abstractions</Filter>
     </ClCompile>
     <ClCompile Include="Injector.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\DependencyInjection</Filter>
+    </ClCompile>
+    <ClCompile Include="EmployeeRepositoryGOODs.cpp">
+      <Filter>Source Files\Model\Repositories</Filter>
+    </ClCompile>
+    <ClCompile Include="EmployeeRepositoryFakeMemory.cpp">
+      <Filter>Source Files\Model\Repositories</Filter>
+    </ClCompile>
+    <ClCompile Include="IEmployeeRepository.cpp">
+      <Filter>Source Files\Model\Abstractions</Filter>
+    </ClCompile>
+    <ClCompile Include="IMainForm.cpp">
+      <Filter>Source Files\View\Abstractions</Filter>
     </ClCompile>
     <ClCompile Include="MainFrame.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="my_root.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\View</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

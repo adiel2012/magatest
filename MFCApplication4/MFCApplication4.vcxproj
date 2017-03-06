@@ -106,7 +106,6 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="annotations.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="commons.h" />
     <ClInclude Include="Employee.h" />
@@ -114,15 +113,12 @@
     <ClInclude Include="EmployeeController.h" />
     <ClInclude Include="EntryPoint.h" />
     <ClInclude Include="IEmployeeADDForm.h" />
-    <ClInclude Include="IEmployeeController.h" />
     <ClInclude Include="IEmployeeRepository.h" />
-    <ClInclude Include="IEmployeeRepositoryFakeMemory.h" />
-    <ClInclude Include="IEmployeeRepositoryGOODs.h" />
+    <ClInclude Include="EmployeeRepositoryFakeMemory.h" />
+    <ClInclude Include="EmployeeRepositoryGOODs.h" />
     <ClInclude Include="IMainForm.h" />
     <ClInclude Include="Injector.h" />
     <ClInclude Include="MainFrame.h" />
-    <ClInclude Include="my_root.h" />
-    <ClInclude Include="Source.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
@@ -131,14 +127,12 @@
     <ClCompile Include="EmployeeController.cpp" />
     <ClCompile Include="EntryPoint.cpp" />
     <ClCompile Include="IEmployeeADD.cpp" />
-    <ClCompile Include="IEmployeeController.cpp" />
     <ClCompile Include="IEmployeeRepository.cpp" />
-    <ClCompile Include="IEmployeeRepositoryFakeMemory.cpp" />
-    <ClCompile Include="IEmployeeRepositoryGOODs.cpp" />
+    <ClCompile Include="EmployeeRepositoryFakeMemory.cpp" />
+    <ClCompile Include="EmployeeRepositoryGOODs.cpp" />
     <ClCompile Include="IMainForm.cpp" />
     <ClCompile Include="Injector.cpp" />
     <ClCompile Include="MainFrame.cpp" />
-    <ClCompile Include="my_root.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MFCApplication4.rc" />

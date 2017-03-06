@@ -5,24 +5,11 @@
 class Employee
 {
 private:
-	//[[FieldDescription("Name")]]
 	std::string name;
-
-//	[[FieldDescription("Date of Birth")]]
 	CTime  dateofbirth;
-
-//	[[FieldDescription("Annual Salary")]]
 	float salary=0;
-
-//	[[FieldDescription("Personal Address")]]
 	std::string address;
-
-	//[[FieldDescription("Private Phone of ten digit")]]
-	//[[Field(ft_string, 10)]]
 	std::string phone;
-
-	//[[FieldDescription("Social Security Number of ten digits")]]
-	//[[Field(ft_string,10)]]
 	std::string ssn;
 
 public:

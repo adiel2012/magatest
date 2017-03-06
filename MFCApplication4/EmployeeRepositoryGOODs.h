@@ -45,7 +45,7 @@ public:
 
 
 
-class IEmployeeRepositoryGOODs : public IEmployeeRepository
+class EmployeeRepositoryGOODs : public IEmployeeRepository
 {
 private:
 	ref<CompanyExpress> company;
@@ -60,8 +60,8 @@ public:
 
 	static void add_each(ref<set_member> mbr, void const*  stdvector_ptr);
 
-	IEmployeeRepositoryGOODs();
-	~IEmployeeRepositoryGOODs();
+	EmployeeRepositoryGOODs();
+	~EmployeeRepositoryGOODs();
 
 	virtual int add(Employee& employee);
 	virtual int remove(Employee& employee);
@@ -90,12 +90,11 @@ public:
 	EmployeeGOODS(Employee emp);
 	Employee ToEmployee();
 	~EmployeeGOODS();
-	METACLASS_DECLARATIONS(EmployeeGOODS, object);
-
+	
 
 	void setName(wstring_t name);
 	
-
+    METACLASS_DECLARATIONS(EmployeeGOODS, object);
 };
 
 

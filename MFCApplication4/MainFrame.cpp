@@ -140,6 +140,45 @@ void MainFrame::fill(std::vector<Employee> employees)
 
 }
 
+void MainFrame::AddData(CListCtrl& ctrl, int row, int col, const char* str)
+
+
+{
+
+	LVITEM lv;
+
+	lv.iItem = row;
+
+	lv.iSubItem = col;
+
+	CStringW temp(str);
+
+	//int len = strlen(str);
+	//WCHAR* sString = new WCHAR[len];
+	////sString[0]='a';
+	//
+	//for (int i = 0; i<len; i++) {
+	//	
+	//		sString[i] = str[i];
+	//	
+	//}
+
+	lv.pszText = temp.GetBuffer();
+
+	lv.mask = LVIF_TEXT;
+
+	if (col == 0)
+
+		ctrl.InsertItem(&lv);
+
+	else
+
+		ctrl.SetItem(&lv);
+	//delete sString;
+
+}
+
+
 #include "Injector.h"
 void MainFrameDialog::add_click()
 {
