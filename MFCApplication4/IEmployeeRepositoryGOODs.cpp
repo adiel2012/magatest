@@ -59,12 +59,18 @@ int IEmployeeRepositoryGOODs::remove(Employee& employee)
 int IEmployeeRepositoryGOODs::remove(std::string ssn)
 {
 	ref<EmployeeGOODS> s = this->findEmployeeGOODS(ssn.c_str());
+
+	ref<set_member> mbr = company->employees->find(ssn.c_str());
 	if (s == NULL) {
 		return -1;
 	}
 	else {
-		ref<set_member> res = s;
-		modify(company->employees)->remove(res);
+		//ref<set_member> res = s;
+		/*ref<B_tree> employeestemp = B_tree::create(NULL);
+		const char* key = s->ssn.getChars();
+		employeestemp->insert(key, &s);
+		ref<set_member> subset = set_member::create(s, key);*/
+		modify(company->employees)->remove(mbr);
 	}
 	return 0;
 }
@@ -73,10 +79,11 @@ int IEmployeeRepositoryGOODs::getbySSN(std::string ssn, Employee& employeefill)
 {
 	
 	ref<set_member> mbr = company->employees->find(ssn.c_str());
-	ref<EmployeeGOODS> cc = mbr;
+	
 	
 
 	if (!mbr.is_nil()) {
+		ref<EmployeeGOODS> cc = mbr->obj;
 		employeefill.setSSN(std::string(cc->ssn.getChars()));
 		employeefill.setAddress(std::string(cc->address.getChars()));
 		employeefill.setPhone(std::string(cc->phone.getChars()));
@@ -85,9 +92,9 @@ int IEmployeeRepositoryGOODs::getbySSN(std::string ssn, Employee& employeefill)
 		employeefill.setSalary(cc->salary);
 	}
 	else {
-		return NULL;
+		return -1;
 	}
-	return -1;  // std::unique_ptr<Employee>(new Employee());
+	return 0;  // std::unique_ptr<Employee>(new Employee());
 }
 
 std::vector<Employee> IEmployeeRepositoryGOODs::getAll()
@@ -105,10 +112,11 @@ void IEmployeeRepositoryGOODs::add_each(ref<set_member> mbr, void const * stdvec
 	b.setAddress(std::string(p->address.getChars()));
 	b.setName(std::string(p->name.getChars()));
 	b.setPhone(std::string(p->phone.getChars()));
-	b.setName(std::string(p->ssn.getChars()));
+	//b.setName(std::string(p->ssn.getChars()));
 	b.setSalary(p->salary);
 	b.setSSN(std::string(p->ssn.getChars()));
 	CTime time(p->dateofbirth);
+	b.setDateofbirth(time);
 	buffer->push_back(b);
 }
 
@@ -127,8 +135,22 @@ int IEmployeeRepositoryGOODs::update(std::string oldSSN, Employee& employeedata)
 		}
 	}
 
-	this->remove(oldSSN);
+	modify(res1)->name = Utils::resize(employeedata.getName(), 20).c_str();
+	modify(res1)->address = Utils::resize(employeedata.getAddress(), 200).c_str();
+	modify(res1)->phone = Utils::resize(employeedata.getPhone(), 10).c_str();
+	modify(res1)->ssn = Utils::resize(employeedata.getSSN(), 10).c_str();
+	modify(res1)->salary = employeedata.getSalary();
+	modify(res1)->dateofbirth = employeedata.getDateofbirth().GetTime();
+	
+	//mbr->obj->setName(temp);
+	;
+
+	//modify(company->employees)->re(key, &e);
+	/*this->remove(oldSSN);
 	this->add(employeedata);
+*/
+
+	
 	return 0;
 }
 
@@ -152,12 +174,14 @@ EmployeeGOODS::EmployeeGOODS(char name[20], CTime dateofbirth, float salary, cha
 
 EmployeeGOODS::EmployeeGOODS(Employee emp) : object(self_class)
 {
-	this->name = emp.getName().c_str();
+	
+	this->name = Utils::resize(emp.getName(),20) .c_str();
 	this->dateofbirth = (long)(emp.getDateofbirth().GetTime());
 	this->salary = emp.getSalary();
-	this->address, emp.getAddress().c_str();
-	this->phone, emp.getPhone().c_str();
-	this->ssn, emp.getSSN().c_str();
+	this->address= Utils::resize(emp.getAddress(),200).c_str();
+	this->phone= Utils::resize(emp.getPhone(),10).c_str();
+	this->ssn= Utils::resize(emp.getSSN(),10).c_str();
+
 }
 
 Employee EmployeeGOODS::ToEmployee()
@@ -173,6 +197,11 @@ field_descriptor & EmployeeGOODS::describe_components()
 {
 	return FIELD(name), FIELD(dateofbirth), FIELD(salary), FIELD(address), FIELD(phone), FIELD(ssn);
 	// name  dateofbirth salary, address, phone, ssn
+}
+
+void EmployeeGOODS::setName(wstring_t name)
+{
+	this->name = name;
 }
 
 REGISTER(EmployeeGOODS, object, pessimistic_repeatable_read_scheme);

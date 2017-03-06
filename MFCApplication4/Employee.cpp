@@ -49,7 +49,7 @@ float Employee::getSalary()
 	return this->salary;
 }
 
-void Employee::setSalary(float name)
+void Employee::setSalary(float salary)
 {
 	this->salary = salary;
 }

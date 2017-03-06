@@ -19,6 +19,29 @@ public:
 		return wString;
 	}
 
+	static bool validateFloat(std::string input) {
+		bool valid = true;
+		float vf;
+
+		if (input.length() == 0) {
+			valid = false;
+		}
+		else {
+			//cannot have alphabet or characters
+			for (int i = 0; i < input.length(); i++) {
+				if (!isdigit(input[i])) {
+					valid = false;
+				}
+			}
+		}
+		vf = atof(input.c_str());
+		//accept negative values
+		if (vf < 0) {
+			valid = true;
+		}
+		return valid;
+	}
+
 	static bool is_valid_char(char c, std::string::size_type pos)
 	{
 		const char dash = '-';
@@ -32,12 +55,12 @@ public:
 
 	static bool is_phone_number(const std::string& candidate)
 	{
-		const std::string::size_type EXPECTED_SIZE = 3 + 1 + 3 + 1 + 4;
-
-		if (candidate.size() != EXPECTED_SIZE) return false;
-
-		for (std::size_t i = 0; i < EXPECTED_SIZE; ++i) // for each position in the string
-			if (!is_valid_char(candidate[i], i)) return false;
+		
+		
+		for (int i = 0; i < 10; ++i) {// for each position in the string
+			if (!std::isdigit(candidate[i]))
+				return false;
+		}
 
 		return true;
 	}
@@ -82,6 +105,16 @@ public:
 		ssn = ssn.substr(0, cad.GetLength());
 		return ssn;
 	}
+
+
+	static std::string resize(std::string cad, int length, char f = ' ')
+	{
+		std::string res = cad;
+		res.resize(length, f);
+		return res;
+	}
+
+
 
 
 };

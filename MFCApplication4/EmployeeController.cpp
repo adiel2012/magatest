@@ -83,12 +83,13 @@ int EmployeeController::validate(Employee e)
 	if (lenName == 0)
 		return 6;
 	std::string phone = e.getPhone();
-	int lenphone = e.getName().length();
+	int lenphone = e.getPhone().length();
 	if (lenphone != 10)
 		return 7;
 
 	if (!Utils::is_phone_number(e.getPhone()))
 		return 8;
+	
 
 	return 0;
 }
@@ -103,41 +104,47 @@ int EmployeeController::do_add_persistence(Employee employee, std::string ssn_ol
 	
 	int valid = EmployeeController::validate(employee);
 	
-	int res = 0;
-	if (ssn_old=="") {
-		//add
-		if (res2 == 0 ) {
-			res = 4;
-		}
-		else
-		res = Injector::getInstance()->getIEmployeeController()->repo->add(employee);
-		if (res == 0) {
-			Utils::Message1("Employee registered correctly", "Correct", Injector::getInstance()->getMAINForm()->dialog);
-		}
-		else {
-			Utils::Message1("Employee NOT registered correctly, REVIEW THE DATA ENTRY", "Incorrect", Injector::getInstance()->getMAINForm()->dialog);
-		}
-	}
-	else {
-	   // edit
-		if (res1 != 0) {
-			res = 2;
-		}else
-		if (ssn_old != employee.getSSN() && res2==0) {
-			res = 3;
-		} else
-		res = Injector::getInstance()->getIEmployeeController()->repo->update(ssn_old, employee);
-		Injector::getInstance()->getIEmployeeController()->add_form->hide();
-		if (res==0) {
-			Utils::Message1("Employee edited correctly","Correct", Injector::getInstance()->getMAINForm()->dialog);
+	int res = valid;
+	if (res == 0){
+		if (ssn_old == "") {
+			//add
+			if (res2 == 0) {
+				res = 4;
+			}
+			else
+				res = Injector::getInstance()->getIEmployeeController()->repo->add(employee);
+			if (res == 0) {
+				Utils::Message1("Employee registered correctly", "Correct", Injector::getInstance()->getMAINForm()->dialog);
+			}
+			else {
+				Utils::Message1("Employee NOT registered correctly, REVIEW THE DATA ENTRY", "Incorrect", Injector::getInstance()->getMAINForm()->dialog);
+			}
 		}
 		else {
-			Utils::Message1("Employee NOT edited correctly, REVIEW THE DATA ENTRY", "Incorrect", Injector::getInstance()->getMAINForm()->dialog);
+			// edit
+			if (res1 != 0) {
+				res = 2;
+			}
+			else
+			if (ssn_old != employee.getSSN() && res2 == 0) {
+				res = 3;
+			}
+			else
+				res = Injector::getInstance()->getIEmployeeController()->repo->update(ssn_old, employee);
+			Injector::getInstance()->getIEmployeeController()->add_form->hide();
+			if (res == 0) {
+				Utils::Message1("Employee edited correctly", "Correct", Injector::getInstance()->getMAINForm()->dialog);
+			}
+			else {
+				Utils::Message1("Employee NOT edited correctly, REVIEW THE DATA ENTRY", "Incorrect", Injector::getInstance()->getMAINForm()->dialog);
+			}
 		}
 	}
 	if (res == 0) {
 		std::vector<Employee> list = Injector::getInstance()->getIEmployeeController()->repo->getAll();
 		Injector::getInstance()->getIEmployeeController()->mainform->fill(list);
+		Injector::getInstance()->getIEmployeeController()->add_form->clean();
+
 	}
 
 	switch (res) 

@@ -84,7 +84,6 @@ public:
 	wstring_t phone;// [10];
 	wstring_t ssn;// [10];
 
-public:
 
 	EmployeeGOODS();
 	EmployeeGOODS(char name[20], CTime  dateofbirth, float salary, char address[200], char phone[10], char ssn[10]);
@@ -93,6 +92,8 @@ public:
 	~EmployeeGOODS();
 	METACLASS_DECLARATIONS(EmployeeGOODS, object);
 
+
+	void setName(wstring_t name);
 	
 
 };

@@ -131,7 +131,7 @@ void MainFrame::fill(std::vector<Employee> employees)
 		AddData(this->dialog->grid, 0, 2, mybuff1);*/
 		AddData(this->dialog->grid, 0, 2, Utils::floatTostring(e.getSalary()).c_str());
 		AddData(this->dialog->grid, 0, 3, e.getAddress().c_str());
-		AddData(this->dialog->grid, 0, 4, Utils::CStringtostring(e.getDateofbirth().Format(_T(" %Y / %m / %d"))   ).c_str()      );
+		AddData(this->dialog->grid, 0, 4, Utils::CStringtostring(e.getDateofbirth().Format(_T(" %m /%d/ %Y"))   ).c_str()      );
 		AddData(this->dialog->grid, 0, 5, e.getPhone().c_str());
 
 	}

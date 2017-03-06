@@ -98,17 +98,21 @@ void EmployeeADDForm::clean()
 
 void EmployeeADDForm::fill(Employee employee, std::string ssn)
 {
+	//if (this->dialog != nullptr){
 	this->ssn_toedit = ssn;
 	this->employee_toedit = employee;
 	
-	/*this->dialog->edt_address.SetWindowText(Utils::convertToLPCWSTR(employee.getAddress().c_str()));
-	this->dialog->edt_date_birth.SetWindowText(Utils::convertToLPCWSTR(employee.getDateofbirth().c_str()));
+	/*if (employee.getAddress() == "")
+		this->dialog->edt_address.Clear();
+	else
+	   this->dialog->edt_address.SetWindowText(Utils::convertToLPCWSTR(employee.getAddress().c_str()));
+	this->dialog->edt_date_birth.SetTime(&employee.getDateofbirth());   //SetWindowText(Utils::convertToLPCWSTR(Utils::floattostring(employee.getDateofbirth()).c_str()));
 	this->dialog->edt_name.SetWindowText(Utils::convertToLPCWSTR(employee.getName().c_str()));
 	this->dialog->edt_phone.SetWindowText(Utils::convertToLPCWSTR(employee.getPhone().c_str()));
 	this->dialog->edt_salary.SetWindowText(Utils::convertToLPCWSTR(Utils::floatTostring(employee.getSalary()).c_str()));
 	this->dialog->edt_ssn.SetWindowText(Utils::convertToLPCWSTR(employee.getSSN().c_str()));
-	*/
-	int g = 0;
+	}*/
+	
 }
 
 //void EmployeeADD::fill(Employee employee)
@@ -158,6 +162,7 @@ void EmployeeADDForm::initialize_labels(std::string tittle, std::string btn_labe
 }
 
 #include "commons.h"
+#include "Injector.h"
 void Employee_Dialog::inform_click()
 {
 	if (parent->employee_add_request!=nullptr) {
@@ -178,9 +183,24 @@ void Employee_Dialog::inform_click()
 
 			/*CTimeSpan dateadd();
 			dateadd.*/
-			
+			if (!Utils::isFloat(Utils::CStringtostring(salary)))
+			{
+				Utils::Message1("Error","Wrong salary Format", Injector::getInstance()->getMAINForm()->dialog);
+				return;
+			}
 			float fsalary = atof( Utils::CStringtostring(salary).c_str());
-		    parent->employee_add_request(Employee(Utils::CStringtostring(name), date, fsalary, Utils::CStringtostring(address), Utils::CStringtostring(phone), Utils::CStringtostring(ssn)),parent->ssn_toedit);
+		    int res =  parent->employee_add_request(Employee(Utils::CStringtostring(name), date, fsalary, Utils::CStringtostring(address), Utils::CStringtostring(phone), Utils::CStringtostring(ssn)),parent->ssn_toedit);
+			if (res == 0)
+			{
+				this->edt_address.SetWindowText(Utils::convertToLPCWSTR(""));
+				//this->edt_date_birth.SetTime(&employee.getDateofbirth());   //SetWindowText(Utils::convertToLPCWSTR(Utils::floattostring(employee.getDateofbirth()).c_str()));
+				this->edt_name.SetWindowText(Utils::convertToLPCWSTR(""));
+				this->edt_phone.SetWindowText(Utils::convertToLPCWSTR(""));
+				this->edt_salary.SetWindowText(Utils::convertToLPCWSTR("0"));
+				this->edt_ssn.SetWindowText(Utils::convertToLPCWSTR(""));
+
+
+			}
 	}
 	
 }
@@ -188,7 +208,16 @@ void Employee_Dialog::inform_click()
 void Employee_Dialog::clean()
 {
 	//this->edt_address.settezt
-	this->parent->fill(Employee(),"");
+	//this->parent->fill(Employee(),"");
+
+	
+/*	this->edt_address.SetWindowText(Utils::convertToLPCWSTR(""));
+	//this->edt_date_birth.SetTime(&employee.getDateofbirth());   //SetWindowText(Utils::convertToLPCWSTR(Utils::floattostring(employee.getDateofbirth()).c_str()));
+	this->edt_name.SetWindowText(Utils::convertToLPCWSTR(""));
+	this->edt_phone.SetWindowText(Utils::convertToLPCWSTR(""));
+	this->edt_salary.SetWindowText(Utils::convertToLPCWSTR("0"));
+	this->edt_ssn.SetWindowText(Utils::convertToLPCWSTR(""));*/
+	
 
 }
 
