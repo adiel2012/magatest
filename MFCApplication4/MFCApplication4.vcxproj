@@ -111,6 +111,7 @@
     <ClInclude Include="Employee.h" />
     <ClInclude Include="EmployeeADDForm.h" />
     <ClInclude Include="EmployeeController.h" />
+    <ClInclude Include="EmployeeRepositoryPosgress.h" />
     <ClInclude Include="EntryPoint.h" />
     <ClInclude Include="IEmployeeADDForm.h" />
     <ClInclude Include="IEmployeeRepository.h" />
@@ -125,6 +126,7 @@
     <ClCompile Include="Employee.cpp" />
     <ClCompile Include="EmployeeADDForm.cpp" />
     <ClCompile Include="EmployeeController.cpp" />
+    <ClCompile Include="EmployeeRepositoryPosgress.cpp" />
     <ClCompile Include="EntryPoint.cpp" />
     <ClCompile Include="IEmployeeADD.cpp" />
     <ClCompile Include="IEmployeeRepository.cpp" />
@@ -136,6 +138,9 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MFCApplication4.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

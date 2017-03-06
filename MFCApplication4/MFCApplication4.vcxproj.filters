@@ -111,6 +111,9 @@
     <ClInclude Include="EmployeeRepositoryGOODs.h">
       <Filter>Header Files\Model\Repositories</Filter>
     </ClInclude>
+    <ClInclude Include="EmployeeRepositoryPosgress.h">
+      <Filter>Header Files\Model\Repositories</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -149,10 +152,16 @@
     <ClCompile Include="MainFrame.cpp">
       <Filter>Source Files\View</Filter>
     </ClCompile>
+    <ClCompile Include="EmployeeRepositoryPosgress.cpp">
+      <Filter>Source Files\Model\Repositories</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MFCApplication4.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>
